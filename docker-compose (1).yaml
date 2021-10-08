@@ -1,0 +1,21 @@
+version: '3.9'
+
+services:
+  app:
+    build: .
+    container_name: ci-mssql-db-app
+    image: ci-mssql-db-app:1.0.0
+    ports:
+      - 80:80
+    depends_on:
+      - db
+    links:
+      - db
+  db:
+    container_name: mssql
+    image: mcr.microsoft.com/mssql/server:2019-CU12-ubuntu-20.04
+    restart: always
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "Testing123"
+      MSSQL_PID: "Developer"
