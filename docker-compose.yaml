@@ -13,9 +13,9 @@ services:
       - db
   db:
     container_name: mssql
-    image: mcr.microsoft.com/mssql/server:2019-CU12-ubuntu-20.04
+    image: mcr.microsoft.com/mssql/server:2017-latest
     restart: always
     environment:
       ACCEPT_EULA: "Y"
-      SA_PASSWORD: "Testing123"
+      SA_PASSWORD: "Admin123"
       MSSQL_PID: "Developer"
